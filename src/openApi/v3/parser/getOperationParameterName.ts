@@ -12,5 +12,5 @@ export const getOperationParameterName = (value: string): string => {
         .replace('[]', 'Array')
         .replace(/[^\w\-]+/g, '-')
         .trim();
-    return camelCase(clean).replace(reservedWords, '_$1');
+    return clean.replace(reservedWords, '_$1');
 };

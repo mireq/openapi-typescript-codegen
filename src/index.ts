@@ -10,6 +10,7 @@ import { registerHandlebarTemplates } from './utils/registerHandlebarTemplates';
 import { writeClient } from './utils/writeClient';
 
 export { HttpClient } from './HttpClient';
+export { CaseTransform } from './CaseTransform';
 export { Indent } from './Indent';
 
 export type Options = {
@@ -26,6 +27,7 @@ export type Options = {
     indent?: Indent;
     postfixServices?: string;
     postfixModels?: string;
+    parameterNameTransform?: CaseTransform;
     request?: string;
     write?: boolean;
 };
@@ -64,6 +66,7 @@ export const generate = async ({
     indent = Indent.SPACE_4,
     postfixServices = 'Service',
     postfixModels = '',
+    parameterNameTransform = CaseTransform.CAMEL,
     request,
     write = true,
 }: Options): Promise<void> => {
